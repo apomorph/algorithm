@@ -23,7 +23,7 @@ import org.apache.commons.lang3.StringUtils;
 	 	最后4个比特数用来做索引下标，然后取从索引开始的4个比特，分别移位组成一个32位的无符号整型，100000取模 生成6位无符号整型密码
  	
  */
-public class DynamicPwdUtil {
+public class OTP {
 	
 	public static void main(String[] args) {
 		
