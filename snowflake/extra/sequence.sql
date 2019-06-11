@@ -1,13 +1,3 @@
-/*
-Navicat MySQL Data Transfer
-
-Target Server Type    : MYSQL
-Target Server Version : 100214
-File Encoding         : 65001
-
-Date: 2019-02-13 16:11:21
-*/
-
 SET FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE IF EXISTS `sys_sequence`;
