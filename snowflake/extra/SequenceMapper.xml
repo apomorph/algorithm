@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="SequenceMapper">
+
+  <resultMap id="sequenceMap" type="Sequence">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="max_id" jdbcType="BIGINT" property="maxId" />
+    <result column="step" jdbcType="INTEGER" property="step" />
+    <result column="biz_tag" jdbcType="VARCHAR" property="bizTag" />
+  </resultMap>
+
+  <!-- 生成下一个序列号 -->
+  <insert id="addSequence" parameterType="java.lang.String">
+    INSERT INTO sys_sequence(max_id,step,biz_tag) VALUES (10000,1,#{bizTag,jdbcType=VARCHAR}) ON DUPLICATE KEY UPDATE max_id = max_id + step
+  </insert>
+  
+  <!-- 批量新增时生成下一个序列号 -->
+  <insert id="addSequenceList" parameterType="java.util.Map">
+    INSERT INTO sys_sequence(max_id,step,biz_tag) VALUES (10000 + #{size,jdbcType=INTEGER} ,1,#{bizTag,jdbcType=VARCHAR}) ON DUPLICATE KEY UPDATE max_id = max_id + #{size,jdbcType=INTEGER}
+  </insert>
+
+  <!-- 获取当前序列 -->
+  <select id="getSequenceByBizTag" parameterType="java.lang.String" resultMap="sequenceMap">
+    SELECT id, max_id, step, biz_tag
+    FROM sys_sequence
+    WHERE biz_tag = #{bizTag,jdbcType=VARCHAR}
+  </select>
+
+</mapper>
