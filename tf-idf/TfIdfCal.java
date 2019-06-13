@@ -58,7 +58,7 @@ public class TfIdfCal {
      * @return
      */
     public double idf(List<List<String>> docs, String term) {
-        return Math.log(docs.size() / (double)df(docs, term) + 1);
+        return Math.log(docs.size() / (double)(df(docs, term) + 1));
     }
 
     /**
