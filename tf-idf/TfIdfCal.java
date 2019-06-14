@@ -1,5 +1,3 @@
-package com.yegoo.searcher.searcher;
-
 import java.util.Arrays;
 import java.util.List;
 
