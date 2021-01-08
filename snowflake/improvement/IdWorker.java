@@ -11,6 +11,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.*;
 
+/**
+ * 改造版雪花算法
+ * @deprecated <a href=https://github.com/bluecatlee/algorithm/tree/master/snowflake/improvement/readme.md/>
+ */
+@Deprecated 
 public class IdWorker {
 
     // SnowFlake算法生成id的结果是一个64bit大小的整数
